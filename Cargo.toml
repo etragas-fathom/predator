@@ -1,0 +1,10 @@
+[package]
+name = "predator"
+version = "0.1.0"
+authors = ["etragas-fathom <elias@fathomhealth.co>"]
+edition = "2018"
+
+[dependencies]
+reqwest = "0.9.18"
+serde_json = "1.0.39"
+serde = "1.0.94"
