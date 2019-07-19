@@ -8,10 +8,10 @@ use std::path::Path;
 pub fn send_email() {
     let email = Email::builder()
         // Addresses can be specified by the tuple (email, alias)
-        .to(("etragas@gmail.com", "Elias Tragas"))
-        .to(("kathyge@gmail.com", "Kathy Ge"))
+        .to(("e_t_rag_as@gmail.com", "Elias Tragas"))
+        .to(("ka_th_ge@gmail.com", "Kathy Ge"))
         // ... or by an address only
-        .from("catpredatorahluhmuhb@gmail.com")
+        .from("cat_predatora!!hlu_hmu_hb@gmail.com")
         .subject("Hi, Hello world")
         .text("Hello world.")
         .attachment_from_file(Path::new("Cargo.toml"), None, &TEXT_PLAIN)
