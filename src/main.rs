@@ -2,6 +2,7 @@ extern crate reqwest;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::collections::HashMap;
+mod constants;
 
 #[derive(Serialize, Deserialize)]
 struct CatList {
@@ -28,9 +29,7 @@ struct Cat {
 }
 
 fn main() -> Result<(), Box<std::error::Error>> {
-    let mut resp =
-        reqwest::get("https://ra-api.adoptapet.com/v1/shelters/75215/pets/?start=1&limit=100")?
-            .text()?;
+    let mut resp = reqwest::get(constants::ADOPT_A_PET_API_STR)?.text()?;
     let cats: Value = serde_json::from_str(&resp)?;
     println!("{:#?}", cats);
     let cats: CatList = serde_json::from_str(&resp)?;
