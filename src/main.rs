@@ -34,13 +34,8 @@ fn main() -> Result<(), Box<std::error::Error>> {
     let cats: Value = serde_json::from_str(&resp)?;
     println!("{:#?}", cats);
     let cats: CatList = serde_json::from_str(&resp)?;
-    // let cats: Vec<CatList> = &resp["body"];
     for obj in cats.body {
         println!("Noot noot {:#?}", obj)
     }
-    // println!("{:#?}", cats);
-    // for val in cats {
-    // println!("{:#?}", val);
-    // }
     Ok(())
 }
