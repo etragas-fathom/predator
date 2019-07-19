@@ -4,6 +4,7 @@ use serde_json::Value;
 use std::collections::HashMap;
 use std::env;
 mod constants;
+mod emailer;
 
 #[derive(Serialize, Deserialize)]
 struct CatList {
@@ -36,6 +37,7 @@ fn debug_print(resp_str: &str) -> Result<(), Box<std::error::Error>> {
 }
 
 fn main() -> Result<(), Box<std::error::Error>> {
+    emailer::send_email();
     let resp = reqwest::get(constants::ADOPT_A_PET_API_STR)?.text()?;
     // TODO: Rip this out arg logic out into its own method once we find a
     //   good framework for this in rust
